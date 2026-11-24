@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notification tester</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <main>
+    <p class="eyebrow">SOCIALMEDIA · FIREBASE</p>
+    <h1>Notification tester</h1>
+    <p>Generate a device token and send it to your backend.</p>
+    <section aria-labelledby="setup-title">
+      <h2 id="setup-title">1. Enable notifications</h2>
+      <p>Allow notifications when your browser asks for permission.</p>
+      <button id="enable" type="button">Get FCM token</button>
+      <p id="status" role="status" aria-live="polite">Ready to connect.</p>
+    </section>
+    <section aria-labelledby="token-title">
+      <h2 id="token-title">2. Your device token</h2>
+      <p>This token identifies this browser for Firebase Cloud Messaging.</p>
+      <label class="sr-only" for="token">FCM registration token</label>
+      <textarea id="token" rows="5" readonly placeholder="Your token will appear here"></textarea>
+      <button id="copy" class="secondary" type="button" disabled>Copy token</button>
+    </section>
+    <section aria-labelledby="send-title">
+      <h2 id="send-title">3. Send a test notification</h2>
+      <p>Send your device token to the backend to trigger a test notification.</p>
+      <form id="send-form">
+        <label for="api-url">Backend URL</label>
+        <input id="api-url" type="url" value="http://localhost:3000" required>
+        <button id="send" type="submit">Send test notification</button>
+        <p id="send-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <section aria-labelledby="messages-title">
+      <h2 id="messages-title">4. Incoming messages</h2>
+      <p>Messages received while this page is open appear here. Background notifications appear through your browser.
+      </p>
+      <div id="messages" aria-live="polite">
+        <p class="empty">No messages received yet.</p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>
